@@ -26,25 +26,28 @@ Original effect size, power analysis for samples to achieve 80%, 90%, 95% power 
 
 ### Planned Sample
 
-Planned sample size and/or termination rule, sampling frame, known demographics if any, preselection rules if any.
+The sample size is of n = 32.
 
 ### Materials
 
-All materials - can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+This study will be conducted online and there will be no physical materials necessary.
 
 ### Procedure	
 
-Can quote directly from original article - just put the text in quotations and note that this was followed precisely.  Or, quote directly and just point out exceptions to what was described in the original article.
+At the start of the experiment, participants will be given instructions on how to respond to trivia questions that they will see. The instructions were as follows: “You will a read couple of trivia questions and answer them. You can write the answer in the blank. In case you do not know the answer, please write 'don't know.' You may or may not encounter ill-formed questions which do not have correct answers if taken literally. For instance, you might see the question 'Why was President Gerald Ford forced to resign his office?' In fact, Gerald Ford was not forced to resign. Please, write 'can't say' for this type of question." The participants then answer two trivia questions, either in an easy-to-read font (Arial) or a hard-to-read font (Bush Script MT). The first question, a control question, asks: “Which country is famous for cuckoo clocks, chocolate, banks, and pocket knives?". The second question, the distorted question of interest, asks: “How many animals of each kind did Moses take on the Ark?".
 
 ### Analysis Plan
 
-Can also quote directly, though it is less often spelled out effectively for an analysis strategy section.  The key is to report an analysis strategy that is as close to the original - data cleaning rules, data exclusion rules, covariates, etc. - as possible.  
+Any participant that does not complete the study (providing answers to both trivia questions) will be excluded. 
+For the distorted question, we will report the proportion of participants who responded "2" and the proportion of participants who responded "can't say" in both conditions (easy-to-read and hard-to-read fonts). We will also conduct z-tests for proportions to compare these proportions between the two conditions.
+For the control question, we will report the proportions of participants who responded "Switzerland" correctly, the proportion who responded a different country's name, the proportion who responded "don't know", and the proportion who responded "can't say" in both conditions. For all of which are applicable (i.e., participants provided that response in either condition), we will conduct z-tests for proportions to compare these proportions between the two conditions.
 
 **Clarify key analysis of interest here**  You can also pre-specify additional analyses you plan to do.
+The z-test of proportions comparing the proportions of "2" answers for the distorted question between the two conditions is the key analysis of interest.
 
 ### Differences from Original Study
 
-Explicitly describe known differences in sample, setting, procedure, and analysis plan from original study.  The goal, of course, is to minimize those differences, but differences will inevitably occur.  Also, note whether such differences are anticipated to make a difference based on claims in the original article or subsequent published research on the conditions for obtaining the effect.
+The subject pool will be different. The original paper sampled undergraduate students who received course credit for their participation. Our replication will sample online users of the platform Prolific. We do not anticipate this difference to impact the results. Everything else in the experiment will be kept the same.
 
 ### Methods Addendum (Post Data Collection)
 
@@ -62,7 +65,7 @@ You can comment this section out prior to final report with data collection.
 
 ### Data preparation
 
-Data preparation following the analysis plan.
+Data will be downloaded and imported into R, then cleaned using Tidyverse prior to analysis.
 	
 ```{r include=F}
 ### Data Preparation
@@ -78,7 +81,7 @@ Data preparation following the analysis plan.
 
 ### Confirmatory analysis
 
-The analyses as specified in the analysis plan.  
+The z-test of proportions comparing the proportions of "2" answers for the distorted question between the two conditions is the key analysis of interest. This is because we would like to see if the rate of producing this incorrect response which indicates the Moses Illusion will differ based on the difference in processing fluency between the two fonts in the two conditions.
 
 *Side-by-side graph with original graph is ideal here*
 
