@@ -98,3 +98,12 @@ Open the discussion section with a paragraph summarizing the primary result from
 ### Commentary
 
 Add open-ended commentary (if any) reflecting (a) insights from follow-up exploratory analysis, (b) assessment of the meaning of the replication (or not) - e.g., for a failure to replicate, are the differences between original and present study ones that definitely, plausibly, or are unlikely to have been moderators of the result, and (c) discussion of any objections or challenges raised by the current and original authors about the replication attempt.  None of these need to be long.
+
+### Design Overview
+One factor (difficulty of reading font) was manipulated.
+There was one measure (the answer to a trivia question) which was repeated once.
+Between-participants. Half get an easy to read font and half get a hard to read font.
+A within-subjects design could have impacted the results. Participants may have not been affected as much by low processing or high processing fluency when the two conditions were one after the other.
+I think that they could have reduced demand characteristics more. The hard to read font they chose is so unusual that I think participants could have figured out that that must be the manipulation, leading them to spend more time on the question and decreasing their rate of falling for the Moses illusion. I would have chosen a font that's harder to read than Arial but not quite as drastic as Bush Script.
+I wonder if they were right to give an example of a distorted question that should be answered "can't say", rather than just telling participants to answer "can't say" for a question where that would be applicable. This alerted them even more to that eventuality. Also, it would have been interesting to see more trials and see if the rate of falling for the illusion more or less with more trials. 
+The design is so simple that I don't think there are confounds. The fact that they only posed two questions (one control, one distorted) limits generalizability.
