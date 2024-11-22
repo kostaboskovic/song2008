@@ -10,6 +10,12 @@ format:
 
 <!-- Replication reports should all use this template to standardize reporting across projects.  These reports will be public supplementary materials that accompany the summary report(s) of the aggregate results. -->
 
+Project Paradigm Links (one for each condition):
+
+https://ucsd-psych201a.github.io/song2008/Trivia_Q1.html (easy condition)
+
+https://ucsd-psych201a.github.io/song2008/Trivia_Q2.html (difficult condition)
+
 ## Introduction
 
 My research interests are in cognitive development, particularly in how children acquire language and concepts. However, for this class and considering the scope of the project, I am aiming to conduct an online study with adult participants, which meant I was going to do something a little different from my primary research interests. More generally, I am interested in the relationship between language and cognition and how this interplay is seen in online language processing. I teamed up with several other first-year Psych PhDs to find an article that fit all of our interests and found this article on the Moses effect, which I find fascinating since a simple manipulation affecting the readibility of the sentence influences the result and leads people to a fallacy in processing and judgment. 
@@ -107,3 +113,62 @@ A within-subjects design could have impacted the results. Participants may have 
 I think that they could have reduced demand characteristics more. The hard to read font they chose is so unusual that I think participants could have figured out that that must be the manipulation, leading them to spend more time on the question and decreasing their rate of falling for the Moses illusion. I would have chosen a font that's harder to read than Arial but not quite as drastic as Bush Script.
 I wonder if they were right to give an example of a distorted question that should be answered "can't say", rather than just telling participants to answer "can't say" for a question where that would be applicable. This alerted them even more to that eventuality. Also, it would have been interesting to see more trials and see if the rate of falling for the illusion more or less with more trials. 
 One significant confound is they assume that people know that the answer to the distorted question if it wasn't distorted is 2. I don't think Noah bringing two of each animal on the ark is THAT common knowledge to people though. The fact that they only posed two questions (one control, one distorted) limits generalizability.
+
+### Pilot A
+```{r}
+library(readxl)
+pilota <- read_excel("C:\\Users\\Owner\\OneDrive\\Documents\\PilotA.xlsx")
+brush_count <- sum(pilota$Distorted == 2 & pilota$Condition == "Brush")
+arial_count <- sum(pilota$Distorted == 2 & pilota$Condition == "Arial")
+
+brush_total <- sum(pilota$Condition == "Brush")
+arial_total <- sum(pilota$Condition == "Arial")
+
+p1 <- brush_count / brush_total
+p2 <- arial_count / arial_total
+
+p <- (brush_count + arial_count) / (brush_total + arial_total)
+
+z <- (p1 - p2) / sqrt(p * (1 - p) * (1 / brush_total + 1 / arial_total))
+z
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+```
+
+
+### Pilot B
+```{r}
+setwd("C:\\Users\\Owner\\OneDrive\\Documents\\R\\Stat201A\\PilotB")
+
+csv_files <- list.files(pattern = "\\.csv$", full.names = TRUE)
+
+csv_list <- lapply(csv_files, function(file) read.csv(file, header = TRUE))
+
+combined_data <- do.call(rbind, csv_list)
+combined_data <- unique(combined_data)
+
+write.csv(combined_data, "combined_data.csv", row.names = FALSE)
+
+brush_total <- sum(grepl("Brush", combined_data$response))
+arial_total <- sum(grepl("Arial", combined_data$response))
+
+brush_count <- 2
+arial_count <- 2
+
+# please note that for brush_count and arial_count I could not figure out how to write code to calculate so I counted the 2 instances manually
+
+p1 <- brush_count / brush_total
+p2 <- arial_count / arial_total
+
+p <- (brush_count + arial_count) / (brush_total + arial_total)
+
+z <- (p1 - p2) / sqrt(p * (1 - p) * (1 / brush_total + 1 / arial_total))
+z
+p_value <- 2 * (1 - pnorm(abs(z)))
+p_value
+
+# the average completion time for the study on Prolific was 2:24 minutes
+
+```
+
+
